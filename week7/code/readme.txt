@@ -1,1 +1,2 @@
-文件夹ioPractice中代码为本周一作业，主要练习标准io库的文件操作以及文件权限管理
+classtest是课堂练习的程序
+homework是课后作业
