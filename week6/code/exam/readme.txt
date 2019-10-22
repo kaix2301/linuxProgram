@@ -1,3 +1,0 @@
-remotestatictest中是静态库的远程测试文件
-remotedynamictest1中是动态库的远程测试文件，通过编译确定库文件地址
-remotedynamictest2中是动态库的远程测试文件，程序内部确定，使用函数指针加载函数
