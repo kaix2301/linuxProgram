@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-void changePermission()
+void changePermission_1()
 {
 	char fileName[20];
 	int mod;
@@ -24,7 +24,7 @@ void changePermission()
 	
 }
 
-void lookChangePermission()
+void lookChangePermission_1()
 {
 	char fileName[20];
 	struct stat fileInfo;

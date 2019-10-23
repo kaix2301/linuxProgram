@@ -6,35 +6,35 @@ int main()
 	
 	while(1)
 	{
-		choice = menu();
+		choice = menu_1();
 		if(choice == 0)
 		{
 			break;
 		}
 		else if(choice == 1)
 		{
-			creatFile();
-			pressKey();
+			creatFile_1();
+			pressKey_1();
 		}
 		else if(choice == 2)
 		{
-			writeFile();
-			pressKey();
+			writeFile_1();
+			pressKey_1();
 		}
 		else if(choice == 3)
 		{
-			readFile();
-			pressKey();
+			readFile_1();
+			pressKey_1();
 		}
 		else if(choice == 4)
 		{
-			changePermission();
-			pressKey();
+			changePermission_1();
+			pressKey_1();
 		}
 		else if(choice == 5)
 		{
-			lookChangePermission();
-			pressKey();
+			lookChangePermission_1();
+			pressKey_1();
 		}
 	}
 }

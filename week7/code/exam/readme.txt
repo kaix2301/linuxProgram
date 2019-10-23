@@ -1,6 +1,3 @@
-homeworkRemoteStatic中对homework中静态库进行远程测试
+homeworkRemoteTest中对homework中静态库和动态库进行远程测试
 	test.c为测试源文件
-	remotestatic是test.c用远程静态库编译生成的可执行文件
-homeworkRemoteDynamic中对homework中动态库进行远程测试
-	test.c为测试源文件
-	remotedynamic是test.c用远程动态库编译生成的可执行文件
+	test是test.c用远程静态库和动态库编译生成的可执行文件
