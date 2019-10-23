@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void creatFile()
+void creatFile_1()
 {
 	char fileName[20];
 	FILE *fileP;
@@ -21,10 +21,11 @@ void creatFile()
     fclose(fileP);
 }
 
-void writeFile()
+void writeFile_1()
 {
 	char fileName[20];
 	char content[100];
+	int i = 0;
 	FILE *fileP;
 
 	printf("Please input filename:");
@@ -37,15 +38,18 @@ void writeFile()
     }
 	else
     {
-        printf("Open successfully, input something to file:\n");
-		scanf("%s",content);
+		//use getchar(), it can get '\n'
+        printf("Open successfully\ninput something to file,input '$' to over:\n");
+		while((content[i]=getchar())!='$')
+    		i++;
+		content[i+1]='\0';
 		fputs(content, fileP);
 		printf("write successfully\n");
     }
     fclose(fileP);
 }
 
-void readFile()
+void readFile_1()
 {
 	char fileName[20];
 	char s[1024] = { 0 };
@@ -58,12 +62,15 @@ void readFile()
     if (fileP == NULL)
     {
         printf("read wrong\n");
+		return;
     }
-	else
-    {
-        printf("read successfully:\n");
-        fgets(s, sizeof(s), fileP);
-        printf("%s\n",s);
-    }
+	
+    printf("read successfully:");
+	rewind(fileP);
+    while(fgets(s, sizeof(s), fileP) != NULL)
+	{
+		printf("%s",s);
+	}
+
     fclose(fileP);
 }
