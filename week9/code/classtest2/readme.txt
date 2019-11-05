@@ -1,0 +1,5 @@
+test1.c和test2.c验证构造函数以及回滚
+call1.c和call2.c分别用system和execvp调用test1，execvp需要设置环境变量
+memtest验证内存泄露等各种情况
+lonjum1.c验证长跳转
+lonjum2.c验证长跳转时修改值的影响
