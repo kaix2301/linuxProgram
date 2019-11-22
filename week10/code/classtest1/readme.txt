@@ -1,5 +1,5 @@
 exit本周第一次课相关问题测试代码
-exittest.测试使用exit退出是缓存区情况
-_exittest.测试使用_exit退出是缓存区情况
+exittest.测试使用exit退出时缓存区情况
+_exittest.测试使用_exit退出时缓存区情况
 _exitExit.c通过参数同时测试exit和_exit
 vforktest.c测试使用vfork派生子进程的修改数据和执行顺序等情况
