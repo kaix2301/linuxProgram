@@ -36,17 +36,8 @@ int main()
 		i = 0;
 		while(i < 4096)
 		{
-			if(i < 10)
-				n = 1;
-			else if(i < 100)
-				n = 2;
-			else if(i < 1000)
-				n = 3;
-			else
-				n = 4;
-
-			sprintf(num, "%d", i);
-			if(write(pipefd1[1], num, n) == -1)
+			sprintf(num, "%04d", i);
+			if(write(pipefd1[1], num, 4) == -1)
 				break;
 			i++;
 		}
@@ -77,21 +68,12 @@ int main()
 			printf("child2 read from pipe1: \n");
 			while(i < 4096)
 			{
-				if(i < 10)
-					n = 1;
-				else if(i < 100)
-					n = 2;
-				else if(i < 1000)
-					n = 3;
-				else
-					n = 4;
-
-				if((r_num = read(pipefd1[0], buf,n)) > 0)
+				if((r_num = read(pipefd1[0], buf,4)) > 0)
 				{
 					printf("read:%s,", buf);
-					r_num1 += r_num;
+					//r_num1 += r_num;
 					
-					if(write(pipefd2[1], buf, n) == -1)
+					if(write(pipefd2[1], buf, 4) == -1)
 						sign = 0;
 				}
 				else
@@ -100,9 +82,9 @@ int main()
 			}
 		
 			if(i == 4096)
-				printf("\nchild2 read pipe1 ok,total=%d\n", r_num1);
+				printf("\nchild2 read pipe1 ok\n");
 			else
-				printf("\nchild2 read pipe1 fail,total=%d\n", r_num1);
+				printf("\nchild2 read pipe1 fail\n");
 			
 			if(sign == 1)
 				printf("child2 write pipe2 ok\n");
@@ -129,19 +111,10 @@ int main()
 				r_num2 = 0;
 				while(i < 4096)
 				{
-					if(i < 10)
-						n = 1;
-					else if(i < 100)
-						n = 2;
-					else if(i < 1000)
-						n = 3;
-					else
-						n = 4;
-
-					if((r_num = read(pipefd2[0], buf, n)) > 0)
+					if((r_num = read(pipefd2[0], buf, 4)) > 0)
 					{
 						sum += ascii_to_integer(buf);
-						r_num2 += r_num;
+						//r_num2 += r_num;
 					}
 					else
 						break;
@@ -149,9 +122,9 @@ int main()
 				}
 			
 				if(i == 4096)
-					printf("child3 read pipe2 ok,total=%d,sum=%d\n", r_num2,sum);
+					printf("child3 read pipe2 ok,sum=%d\n",sum);
 				else
-					printf("child3 read pipe2 fail,total=%d,sum=%d\n", r_num2,sum);
+					printf("child3 read pipe2 fail,sum=%d\n",sum);
 
 				close(pipefd2[0]);
 				exit(0);
